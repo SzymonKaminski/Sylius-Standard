@@ -1,0 +1,41 @@
+default:
+    suites:
+        app_ui_managing_products:
+            contexts:
+                - sylius.behat.context.hook.doctrine_orm
+
+                - sylius.behat.context.transform.locale
+                - sylius.behat.context.transform.product
+                - sylius.behat.context.transform.shared_storage
+
+                - sylius.behat.context.setup.admin_user
+                - sylius.behat.context.setup.channel
+                - sylius.behat.context.setup.product
+                - sylius.behat.context.setup.admin_security
+
+                - sylius.behat.context.ui.admin.managing_products
+                - sylius.behat.context.ui.admin.notification
+                - app.behat.context.ui.admin.managing_products
+
+            filters:
+                tags: "@managing_products && @ui && @product_color"
+
+        app_ui_viewing_products:
+            contexts:
+                - sylius.behat.context.hook.doctrine_orm
+                
+                - sylius.behat.context.transform.channel
+                - sylius.behat.context.transform.customer
+                - sylius.behat.context.transform.product
+
+                - sylius.behat.context.setup.channel
+                - sylius.behat.context.setup.customer
+                - sylius.behat.context.setup.product
+                - sylius.behat.context.setup.shop_security
+                - app.behat.context.setup.product
+
+                - sylius.behat.context.ui.shop.product
+                - app.behat.context.ui.shop.product
+                
+            filters:
+                tags: "@viewing_products && @ui && product_color"
